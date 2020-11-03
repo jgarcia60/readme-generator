@@ -9,12 +9,6 @@ const questions = [
         name: 'title',
     }, 
     {
-        type: 'checkbox',
-        message: 'What sections do you want in your README?',
-        name: 'tableOfContents',
-        choices: ['Title', 'Description', 'Table of Contents', 'Installation', 'Usage', 'Credits', 'License', 'Badges', 'Contributing', 'Tests', 'Questions'],
-    },
-    {
         type: 'input',
         message: 'What is your project description?',
         name: 'description',
@@ -38,13 +32,13 @@ const questions = [
         type: 'list',
         message: 'Which license will you use?',
         name: 'license',
-        choices: ['MIT', 'GNU GPLv3', 'Apache', 'ISC'], 
+        choices: ['MIT', 'GNU_GPLv3', 'Apache', 'ISC'], 
     },
-    {
-        type: 'input',
-        message: 'What do you want in the Badges section?',
-        name: 'badges',
-    },
+    // {
+    //     type: 'input',
+    //     message: 'What do you want in the Badges section?',
+    //     name: 'badges',
+    // },
     {
         type: 'input',
         message: 'What do you want to put in the Contributing section?',
@@ -69,12 +63,14 @@ const questions = [
 ];
 
 // function to write README file
+
+
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, JSON.stringify(data, null, "\t"), "utf8", function(err) {
+    fs.writeFile(fileName, data, "utf8", function(err) {
         if (err) throw err;
 });
 }
-
+// JSON.stringify(data, null, "\t")
 // function to initialize program
 // function init() {
 
@@ -87,9 +83,61 @@ function writeToFile(fileName, data) {
 inquirer.prompt(
     questions
 ).then((response) => {
-    console.log(response);
-    const readMeContent = `Title: ${response.title} and Description: ${response.description}`;
-    fs.writeFile('log.txt', readMeContent, 'utf8', function(err) {
-        if (err) throw err;
-    });
+    // console.log(response);
+    // const readMeContent = `Title: ${response.title} and Description: ${response.description}`;
+    // fs.writeFile('log.txt', readMeContent, 'utf8', function(err) {
+    //     if (err) throw err;
+    // });
+    // const filename = 'README.md';
+    const content = `# ${response.title}
+![screenshot](https://img.shields.io/badge/license-${response.license}-green)
+
+## Description  
+
+${response.description}
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+
+
+## Installation
+
+${response.installInstructions}
+
+
+## Usage   
+
+${response.usage} 
+
+## Credits
+
+${response.credits}
+
+
+## License
+
+This project is covered under the ${response.license} license.
+
+## Contributing
+
+${response.contributing}
+
+## Tests
+
+${response.tests}
+
+
+## Questions
+
+If you would like further information on this project or other projects I've worked on, check out my github profile at https://www.github.com/${response.username}.
+
+For any other questions, feel free to email me at ${response.email}`;
+    writeToFile('README.md', content);
 });
