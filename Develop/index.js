@@ -70,25 +70,13 @@ function writeToFile(fileName, data) {
         if (err) throw err;
 });
 }
-// JSON.stringify(data, null, "\t")
-// function to initialize program
-// function init() {
 
-// }
-
-// function call to initialize program
-// init();
 
 
 inquirer.prompt(
     questions
 ).then((response) => {
-    // console.log(response);
-    // const readMeContent = `Title: ${response.title} and Description: ${response.description}`;
-    // fs.writeFile('log.txt', readMeContent, 'utf8', function(err) {
-    //     if (err) throw err;
-    // });
-    // const filename = 'README.md';
+   
     const content = `# ${response.title}
 ![screenshot](https://img.shields.io/badge/license-${response.license}-green)
 
