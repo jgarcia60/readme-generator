@@ -127,5 +127,5 @@ ${response.tests}
 If you would like further information on this project or other projects I've worked on, check out my github profile at https://www.github.com/${response.username}.
 
 For any other questions, feel free to email me at ${response.email}`;
-    writeToFile('README.md', content);
+    writeToFile('exampleREADME.md', content);
 });

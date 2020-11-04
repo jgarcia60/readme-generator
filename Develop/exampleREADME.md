@@ -1,9 +1,9 @@
-# ReadME Title
+# README Generator
 ![screenshot](https://img.shields.io/badge/license-MIT-green)
 
 ## Description  
 
-Implementing a README generator
+This project uses Node.js to implement a README generator from the command line
 
 ## Table of Contents
 
@@ -18,16 +18,16 @@ Implementing a README generator
 
 ## Installation
 
-you can fork the github repo for this project
+You can fork this repo and use this code in your command line
 
 
 ## Usage   
 
-You can use this as your own template for creating a README 
+Use this as a template for how to create a README, or how to use Node.js and Inquirer to implement command line prompts 
 
 ## Credits
 
-Jonathan Garcia worked on this project individually
+Jonathan Garcia worked on this by himself
 
 
 ## License
@@ -36,7 +36,7 @@ This project is covered under the MIT license.
 
 ## Contributing
 
-Standard practices according to the contributor's agreement
+This follows the Contributor's Covanent 
 
 ## Tests
 
